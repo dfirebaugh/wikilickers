@@ -1,5 +1,5 @@
 #!/bin/bash
 
-source ./scripts/download-mdbook.sh
+source ./scripts/download_mdbook.sh
 
 bin/mdbook serve -p 8888 docs/wikilickers --open
