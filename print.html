@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js navy">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>wikilickers</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "navy";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Intro</a></li><li class="chapter-item expanded affix "><a href="recording.html">Recording</a></li><li class="chapter-item expanded affix "><a href="editing.html">Editing</a></li><li class="chapter-item expanded affix "><a href="encode_to_mp3.html">Encode To MP3</a></li><li class="chapter-item expanded affix "><a href="attributions.html">Attributions</a></li><li class="chapter-item expanded affix "><li class="part-title">Episodes</li><li class="chapter-item expanded "><a href="episodes/cereal.html"><strong aria-hidden="true">1.</strong> Cereal</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">wikilickers</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="wikilickers"><a class="header" href="#wikilickers">Wikilickers</a></h1>
+<p>Wikilickers is a low effort podcast where we hang back and crackwise about a wikipedia article.
+This podcast is just something that we do for fun and we have no plans on monetizing.</p>
+<p>Typically episodes are around 30 minutes.</p>
+<h2 id="create-your-own-episode"><a class="header" href="#create-your-own-episode">Create your own episode</a></h2>
+<p>You are welcome to create your own episode.</p>
+<ol>
+<li>Gather your friends or enemies.</li>
+<li>Choose a random or interesting wikipedia article.</li>
+<li>Record yourself reading through wiki article.</li>
+<li>submit your recording to wikilickers@gmail.com</li>
+</ol>
+<p>We will provide a score based entirely on how well you pronounce difficult words in the article.</p>
+<h2 id="self-hosting"><a class="header" href="#self-hosting">Self hosting</a></h2>
+<p>Currently, we host the podcast on soundcloud.<br />
+Eventually we plan on self hosting for better longevity and to achieve a lower operations cost.</p>
+<h3 id="todo"><a class="header" href="#todo">TODO</a></h3>
+<p>To self host, we need to build some kind of automation that builds the episodes to an RSS feed.</p>
+<h2 id="distribution"><a class="header" href="#distribution">Distribution</a></h2>
+<p>The wikilickers podcast is searchable on most podcasting platforms.</p>
+<p><a href="https://podcasts.apple.com/ie/podcast/wikilickers/id1211031271">wikilickers on apple podcasts</a></p>
+<p><a href="https://soundcloud.com/wikilickers">https://soundcloud.com/wikilickers</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="recording"><a class="header" href="#recording">Recording</a></h1>
+<h2 id="multi-track"><a class="header" href="#multi-track">Multi-track</a></h2>
+<p>For the best audio quality, it is best if everyone is on their own individual track.
+One person per microphone.</p>
+<h2 id="discord"><a class="header" href="#discord">Discord</a></h2>
+<p>For remote recording, we've found the <a href="https://craig.chat/">Craig</a> discord bot to be pretty easy to use.</p>
+<p>Craig will record each person as their own separate track.  You will need to use some sort of (DAW) Digital Audio Workstation (e.g. <a href="https://www.audacityteam.org/">Audacity</a>) to compile the tracks together.</p>
+<h2 id="mic-suggestion"><a class="header" href="#mic-suggestion">Mic suggestion</a></h2>
+<p>Content is more important than audio quality.</p>
+<p>Don't use a laptop's built in mic.</p>
+<div class="table-wrapper"><table><thead><tr><th>quality</th><th>type</th><th>mic</th><th>notes</th></tr></thead><tbody>
+<tr><td>OK</td><td>gaming headset</td><td>Most gaming headsets can provide a somewhat decent audio quality.</td><td></td></tr>
+<tr><td>Better</td><td>standalone usb mic</td><td><a href="https://www.bluemic.com/en-us/products/yeti/">blue yeti</a> (~$100) or the <a href="https://www.audio-technica.com/en-us/atr2100-usb">audio-technica atr2100-usb</a> (~$80)</td><td>these are good for individuals, but it can make things difficult if you have multiple people in the same room</td></tr>
+<tr><td>even better</td><td>xlr mic</td><td><a href="https://www.shure.com/en-MEA/products/microphones/sm58?variant=SM58-LCE">shure sm58</a></td><td>it might be good to have a pop filter with this kind of mic</td></tr>
+<tr><td>best</td><td>xlr broadcast mic</td><td><a href="https://www.shure.com/en-GB/products/microphones/sm7b?variant=SM7B">shure sm7b</a> (~$400) or <a href="https://www.shure.com/en-MEA/products/microphones/mv7?variant=MV7-K">shure mv7</a></td><td>these would require an audio interface and possibly a preamp</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="editing"><a class="header" href="#editing">Editing</a></h1>
+<p>We don't do much editing.
+The podcast is supposed to be low effort.</p>
+<p>So, we basically just add in the intro and outro music and then release.</p>
+<h2 id="software"><a class="header" href="#software">Software</a></h2>
+<p>Any DAW (digital audio workstation) can be used to edit the tracks down.</p>
+<p>I use <a href="https://www.ableton.com/en/">Ableton</a>.  Ableton isn't free, but I'm fairly proficient in it which allows me to move quickly.</p>
+<h3 id="opensource-options"><a class="header" href="#opensource-options">Opensource options</a></h3>
+<ul>
+<li><a href="https://ardour.org/">ardour</a></li>
+<li><a href="https://www.audacityteam.org/">audacity</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="encoding-to-mp3"><a class="header" href="#encoding-to-mp3">Encoding to mp3</a></h1>
+<p>Ideally, you want to record high quality audio, but compress/encode it so that you can deliver a small file.</p>
+<p><a href="https://ffmpeg.org/download.html">download ffmpeg</a></p>
+<pre><code class="language-bash">ffmpeg -i .\export.output.wav -vn -ar 44100 -ac 2 -ab 192k -f mp3 name_of_episode.mp3
+</code></pre>
+<blockquote>
+<p>note: replace &quot;export.output.wav&quot; with the file that you wish to work with and &quot;name_of_episode.mp3&quot; with the name of the file you wish to output.</p>
+</blockquote>
+<p>You will notice the output file will be a lot smaller.</p>
+<p>e.g.</p>
+<p><code>bag.wav</code> is about 423 MB</p>
+<p><code>bag.mp3</code> is about 53 MB</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="attributions"><a class="header" href="#attributions">Attributions</a></h1>
+<h3 id="introoutro-music"><a class="header" href="#introoutro-music">Intro/Outro Music</a></h3>
+<p><audio
+    controls
+    src="./intro.mp3">
+Your browser does not support the
+<code>audio</code> element.
+</audio></p>
+<p>by waterflame</p>
+<p><a href="https://waterflame.newgrounds.com/">https://waterflame.newgrounds.com/</a></p>
+<p><a href="https://www.youtube.com/user/waterflame89">https://www.youtube.com/user/waterflame89</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cereal"><a class="header" href="#cereal">Cereal</a></h1>
+<p><a href="https://en.wikipedia.org/wiki/Breakfast_cereal">Breakfast Cereal</a></p>
+<p><audio
+    controls
+    src="./cereal.mp3">
+Your browser does not support the
+<code>audio</code> element.
+</audio></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
