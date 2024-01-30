@@ -28,4 +28,3 @@ The wikilickers podcast is searchable on most podcasting platforms.
 
 [wikilickers on apple podcasts](https://podcasts.apple.com/ie/podcast/wikilickers/id1211031271)
 
-[https://soundcloud.com/wikilickers](https://soundcloud.com/wikilickers)
